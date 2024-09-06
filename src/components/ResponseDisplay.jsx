@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography, Paper } from "@mui/material";
 
-const ResponseDisplay = ({ id,title,body }) => {
+const ResponseDisplay = ({ response }) => {
   if (!response) return null;
 
   return (
@@ -10,9 +10,9 @@ const ResponseDisplay = ({ id,title,body }) => {
         Response:
       </Typography>
       <Box>
-        <Typography><strong>Id:</strong> {id}</Typography>
-        <Typography><strong>Username:</strong> {title}</Typography>
-        <Typography><strong>Passoword:</strong> {body}</Typography>
+        <Typography><strong>Id:</strong> {response.id}</Typography>
+        <Typography><strong>Username:</strong> {response.title}</Typography>
+        <Typography><strong>Passoword:</strong> {response.body}</Typography>
       </Box>
     </Paper>
   );
