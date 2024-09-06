@@ -33,11 +33,13 @@ const App = () => {
 
     // req
     try {
-      const res = await axios.post("https://jsonplaceholder.typicode.com/posts", {
+      const res = await axios.post("https://jsonplaceholder.org/posts", {
         title: username,
-        body: password, 
+        content: password, 
       });
 
+      console.log(res.data);
+      
       setResponse(res.data);
       setUsername("")
       setPassword("")

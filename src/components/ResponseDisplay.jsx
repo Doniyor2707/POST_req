@@ -12,7 +12,7 @@ const ResponseDisplay = ({ response }) => {
       <Box>
         <Typography><strong>Id:</strong> {response.id}</Typography>
         <Typography><strong>Username:</strong> {response.title}</Typography>
-        <Typography><strong>Passoword:</strong> {response.body}</Typography>
+        <Typography><strong>Passoword:</strong> {response.content}</Typography>
       </Box>
     </Paper>
   );
