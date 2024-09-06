@@ -37,8 +37,6 @@ const App = () => {
         title: username,
         content: password, 
       });
-
-      console.log(res.data);
       
       setResponse(res.data);
       setUsername("")

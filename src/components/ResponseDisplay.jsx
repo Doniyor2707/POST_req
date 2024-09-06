@@ -9,8 +9,7 @@ const ResponseDisplay = ({ response }) => {
       <Typography variant="h6" gutterBottom>
         Response:
       </Typography>
-      <Box>
-        <Typography><strong>Id:</strong> {response.id}</Typography>
+      <Box>        
         <Typography><strong>Username:</strong> {response.title}</Typography>
         <Typography><strong>Passoword:</strong> {response.content}</Typography>
       </Box>
