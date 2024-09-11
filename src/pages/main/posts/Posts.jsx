@@ -1,3 +1,4 @@
+// state
 import React, { useState } from "react";
 import {
   Box,
@@ -7,10 +8,13 @@ import {
   Typography,
   CircularProgress,
 } from "@mui/material";
+// api
 import { useAuthPostsMutation } from "../../../app/services/auth";
+// formik
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
+// category
 const categories = [
   { value: "react js", label: "React js" },
   { value: "angular", label: "Angular" },
@@ -32,10 +36,13 @@ const validationSchema = Yup.object().shape({
 });
 
 const Posts = () => {
+  // api
   const [authLogin, { isLoading }] = useAuthPostsMutation();
+  // state
   const [responseMessage, setResponseMessage] = useState(null);
   const [response, setResponse] = useState(null);
 
+  // formik
   const formik = useFormik({
     initialValues: initialValues,
     validationSchema: validationSchema,
@@ -43,13 +50,15 @@ const Posts = () => {
       try {
         const res = await authLogin(values).unwrap();
         setResponse(res);
+        // massage
         setResponseMessage({
           type: "success",
           text: "Post created successfully!",
         });
-        console.log("res", res);
+
         resetForm();
       } catch (err) {
+        // massage
         setResponseMessage({
           type: "error",
           text: "Failed to create post. Please try again.",
@@ -144,7 +153,7 @@ const Posts = () => {
           Submit
         </Button>
       )}
-
+      {/* massage */}
       {responseMessage && (
         <Typography
           variant="body1"
@@ -157,7 +166,7 @@ const Posts = () => {
           {responseMessage.text}
         </Typography>
       )}
-
+      {/* res */}
       {response && (
         <Box
           sx={{ mt: 4, p: 2, backgroundColor: "#f0f0f0", borderRadius: "8px" }}
