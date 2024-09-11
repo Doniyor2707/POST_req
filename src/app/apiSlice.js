@@ -1,10 +1,13 @@
-import { createApi, fetchBaseQuery, retry } from "@reduxjs/toolkit/query";
+import { fetchBaseQuery, retry, createApi } from "@reduxjs/toolkit/query/react";
 import { baseUrl } from "./api";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: baseUrl,
   prepareHeaders: (headers, { getState }) => {
+    const token = "";
     if (token) {
+      headers.set("Accept", "application/json");
+      headers.set("Content-Type", "application/json");
       headers.set("authentication", `Bearer ${token}`);
     }
 
@@ -12,10 +15,10 @@ const baseQuery = fetchBaseQuery({
   },
 });
 
-const baseQueryWithRetry = retry(baseQuery, { maxRetries: 3 });
+const baseQueryWithRetry = retry(baseQuery, { maxRetries: 2 });
 
 export const apiSlice = createApi({
-  reducerPath: "api",
+  reducerPath: "splitApi",
   baseQuery: baseQueryWithRetry,
   endpoints: () => ({}),
 });
