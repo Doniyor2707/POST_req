@@ -72,7 +72,7 @@ const UserForm = () => {
         borderRadius: "12px",
       }}
     >
-      <Typography variant="h5" align="center" gutterBottom>
+      <Typography variant="h4" align="center" gutterBottom>
         Create New User
       </Typography>
       <Grid container spacing={2}>
